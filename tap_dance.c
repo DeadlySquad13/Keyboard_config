@@ -13,11 +13,19 @@ void post_init_tap_dance(void) {
         MEDIUM_TAPPING_TERM
     };
 
-    vial_tap_dance_entry_t td_ENTER_NAV = {
-        KC_ENTER,
+    // vial_tap_dance_entry_t td_ENTER_NAV = {
+    //     KC_ENTER,
+    //     NAV,
+    //     KC_NO,
+    //     KC_ENTER,
+    //     MEDIUM_TAPPING_TERM
+    // };
+
+    vial_tap_dance_entry_t td_SPACE_NAV = {
+        KC_SPACE,
         NAV,
         KC_NO,
-        KC_ENTER,
+        KC_NO,
         MEDIUM_TAPPING_TERM
     };
 
@@ -137,7 +145,8 @@ void post_init_tap_dance(void) {
 
     // The first parameter corresponds to the TD(i) slot.
     dynamic_keymap_set_tap_dance(0, &td_SPACE_LSFT);
-    dynamic_keymap_set_tap_dance(2, &td_ENTER_NAV);
+    // dynamic_keymap_set_tap_dance(2, &td_ENTER_NAV);
+    dynamic_keymap_set_tap_dance(2, &td_SPACE_NAV);
     dynamic_keymap_set_tap_dance(3, &td_TMUX_SYMB);
     dynamic_keymap_set_tap_dance(4, &td_DEL_NUM);
     dynamic_keymap_set_tap_dance(5, &td_CAPS_GAME);
@@ -156,3 +165,4 @@ void post_init_tap_dance(void) {
     dynamic_keymap_set_tap_dance(29, &td_COMM_RALT);
     dynamic_keymap_set_tap_dance(30, &td_DOT_RGUI);
 }
+

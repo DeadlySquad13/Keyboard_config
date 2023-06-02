@@ -2,7 +2,8 @@
 
 // --- Tap Dance. ---
 #define TD_SPACE_LSFT TD(0)
-#define TD_ENTER_NAV TD(2)
+// #define TD_ENTER_NAV TD(2)
+#define TD_SPACE_NAV TD(2)
 #define TD_TMUX_SYMB TD(3)
 #define TD_DEL_NUM TD(4)
 #define TD_CAPS_GAME TD(5)
