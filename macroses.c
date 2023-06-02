@@ -144,6 +144,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 break;
             }
 
+            if (!record->event.pressed) {
+                unregister_code(KC_LEFT);
+            }
+
             if (is_caps_word_on()) {
                 if (record->event.pressed) {
                     register_code16(S(KC_H));
@@ -156,7 +160,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             if (record->event.pressed) {
                 register_code(KC_H);
             } else {
-                unregister_code(KC_LEFT);
                 unregister_code(KC_H);
             }
             break;
@@ -184,6 +187,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 break;
             }
 
+            if (!record->event.pressed) {
+                unregister_code(KC_DOWN);
+            }
+
             if (is_caps_word_on()) {
                 if (record->event.pressed) {
                     register_code16(S(KC_J));
@@ -194,7 +201,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             }
 
             if (record->event.pressed) {
-                SEND_STRING(SS_DOWN(X_J));
+                register_code(KC_J);
             } else {
                 unregister_code(KC_J);
             }
@@ -221,6 +228,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                     unregister_code(KC_UP);
                 }
                 break;
+            }
+
+            if (!record->event.pressed) {
+                unregister_code(KC_UP);
             }
 
             if (is_caps_word_on()) {
@@ -260,6 +271,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                     unregister_code(KC_RIGHT);
                 }
                 break;
+            }
+
+            if (!record->event.pressed) {
+                unregister_code(KC_RIGHT);
             }
 
             if (is_caps_word_on()) {
