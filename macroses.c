@@ -1,5 +1,10 @@
 #include QMK_KEYBOARD_H
 #include "macroses.h"
+#include "definitions.h"
+#include "tap_dance.h"
+
+bool persistent_nav_is_active = false;
+uint16_t persistent_nav_timer = 0;
 
 // Custom keycodes.
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
@@ -7,6 +12,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         extern uint32_t tap_timer;
         tap_timer = timer_read32();
     }
+
     switch (keycode) {
         case NEXTSEN:  // Next sentence macro.
           if (record->event.pressed) {
@@ -114,7 +120,172 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 );
             }
             break;
+
+        case PERSISTENT_LEFT:
+            persistent_nav_timer = timer_read();
+
+            if (record->event.pressed) {
+                register_code(KC_LEFT);
+                persistent_nav_is_active = true;
+            } else {
+                unregister_code(KC_LEFT);
+            }
+            break;
+
+        case H_PERSISTENT:
+            if (persistent_nav_is_active) {
+                persistent_nav_timer = timer_read();
+
+                if (record->event.pressed) {
+                    register_code(KC_LEFT);
+                } else {
+                    unregister_code(KC_LEFT);
+                }
+                break;
+            }
+
+            if (is_caps_word_on()) {
+                if (record->event.pressed) {
+                    register_code16(S(KC_H));
+                } else {
+                    unregister_code16(S(KC_H));
+                }
+                break;
+            }
+
+            if (record->event.pressed) {
+                register_code(KC_H);
+            } else {
+                unregister_code(KC_LEFT);
+                unregister_code(KC_H);
+            }
+            break;
+
+        case PERSISTENT_DOWN:
+            persistent_nav_timer = timer_read();
+
+            if (record->event.pressed) {
+                register_code(KC_DOWN);
+                persistent_nav_is_active = true;
+            } else {
+                unregister_code(KC_DOWN);
+            }
+            break;
+
+        case J_PERSISTENT:
+            if (persistent_nav_is_active) {
+                persistent_nav_timer = timer_read();
+
+                if (record->event.pressed) {
+                    register_code(KC_DOWN);
+                } else {
+                    unregister_code(KC_DOWN);
+                }
+                break;
+            }
+
+            if (is_caps_word_on()) {
+                if (record->event.pressed) {
+                    register_code16(S(KC_J));
+                } else {
+                    unregister_code16(S(KC_J));
+                }
+                break;
+            }
+
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_J));
+            } else {
+                unregister_code(KC_J);
+            }
+            break;
+
+        case PERSISTENT_UP:
+            persistent_nav_timer = timer_read();
+
+            if (record->event.pressed) {
+                register_code(KC_UP);
+                persistent_nav_is_active = true;
+            } else {
+                unregister_code(KC_UP);
+            }
+            break;
+
+        case K_PERSISTENT:
+            if (persistent_nav_is_active) {
+                persistent_nav_timer = timer_read();
+
+                if (record->event.pressed) {
+                    register_code(KC_UP);
+                } else {
+                    unregister_code(KC_UP);
+                }
+                break;
+            }
+
+            if (is_caps_word_on()) {
+                if (record->event.pressed) {
+                    register_code16(S(KC_K));
+                } else {
+                    unregister_code16(S(KC_K));
+                }
+                break;
+            }
+
+            if (record->event.pressed) {
+                register_code(KC_K);
+            } else {
+                unregister_code(KC_K);
+            }
+            break;
+
+        case PERSISTENT_RIGHT:
+            persistent_nav_timer = timer_read();
+
+            if (record->event.pressed) {
+                register_code(KC_RIGHT);
+                persistent_nav_is_active = true;
+            } else {
+                unregister_code(KC_RIGHT);
+           }
+            break;
+
+        case L_PERSISTENT:
+            if (persistent_nav_is_active) {
+                persistent_nav_timer = timer_read();
+
+                if (record->event.pressed) {
+                    register_code(KC_RIGHT);
+                } else {
+                    unregister_code(KC_RIGHT);
+                }
+                break;
+            }
+
+            if (is_caps_word_on()) {
+                if (record->event.pressed) {
+                    register_code16(S(KC_L));
+                } else {
+                    unregister_code16(S(KC_L));
+                }
+                break;
+            }
+
+            if (record->event.pressed) {
+                register_code(KC_L);
+            } else {
+                unregister_code(KC_L);
+            }
+            break;
     }
 
     return true;
+}
+
+void matrix_scan_user(void) { // The very important timer.
+  if (persistent_nav_is_active) {
+        if (timer_elapsed(persistent_nav_timer) > 1000) {
+            persistent_nav_is_active = false;
+        }
+    }
 }

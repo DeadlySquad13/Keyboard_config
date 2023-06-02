@@ -6,17 +6,22 @@
 #define TD_TMUX_SYMB TD(3)
 #define TD_DEL_NUM TD(4)
 #define TD_CAPS_GAME TD(5)
+
+#define TD_LEFT_NAV TD(6)
+#define TD_RIGHT_NAV TD(7)
+#define TD_DOWN_NAV TD(8)
+#define TD_UP_NAV TD(9)
 // #define TD_BSPC_FUN TD(30)
 
 // Home row mods.
 #define TD_S_LGUI TD(25)
 #define TD_D_LALT TD(26)
 #define TD_F_LCTL TD(27)
+
 // Bottom row mods.
 #define TD_M_RCTL TD(28)
 #define TD_COMM_RALT TD(29)
 #define TD_DOT_RGUI TD(30)
-
 
 #define FAST_TAPPING_TERM 130
 #define MEDIUM_TAPPING_TERM 140

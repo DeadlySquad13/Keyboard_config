@@ -96,6 +96,37 @@ void post_init_tap_dance(void) {
         MEDIUM_TAPPING_TERM
     };
 
+
+    vial_tap_dance_entry_t td_LEFT_NAV = {
+        KC_LEFT,
+        PERSISTENT_LEFT,
+        KC_NO,
+        KC_NO,
+        FAST_TAPPING_TERM
+    };
+
+    vial_tap_dance_entry_t td_RIGHT_NAV = {
+        KC_RIGHT,
+        PERSISTENT_RIGHT,
+        KC_NO,
+        KC_NO,
+        FAST_TAPPING_TERM
+    };
+
+    vial_tap_dance_entry_t td_DOWN_NAV = {
+        KC_DOWN,
+        PERSISTENT_DOWN,
+        KC_NO,
+        KC_NO,
+        FAST_TAPPING_TERM
+    };
+    vial_tap_dance_entry_t td_UP_NAV = {
+        KC_UP,
+        PERSISTENT_UP,
+        KC_NO,
+        KC_NO,
+        FAST_TAPPING_TERM
+    };
     // vial_tap_dance_entry_t td_VIRTUALDESKTOP___GAME = {
     //     C(G(KC)),
     //     KC_NO,
@@ -110,6 +141,11 @@ void post_init_tap_dance(void) {
     dynamic_keymap_set_tap_dance(3, &td_TMUX_SYMB);
     dynamic_keymap_set_tap_dance(4, &td_DEL_NUM);
     dynamic_keymap_set_tap_dance(5, &td_CAPS_GAME);
+
+    dynamic_keymap_set_tap_dance(6, &td_LEFT_NAV);
+    dynamic_keymap_set_tap_dance(7, &td_RIGHT_NAV);
+    dynamic_keymap_set_tap_dance(8, &td_DOWN_NAV);
+    dynamic_keymap_set_tap_dance(9, &td_UP_NAV);
 
     // Home row mods.
     dynamic_keymap_set_tap_dance(25, &td_S_LGUI);
