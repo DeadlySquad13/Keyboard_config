@@ -13,6 +13,8 @@ enum combo_keycodes {
     CM_VZ_CUT,
     CM_VX_COPY,
     CM_VC_PASTE,
+
+    CM_HARD, // ъ
 };
 
 #endif

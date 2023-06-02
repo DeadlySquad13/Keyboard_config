@@ -62,6 +62,14 @@ void post_init_combos(void) {
         PASTE
     };
 
+    vial_combo_entry_t cm_HARD = {
+        KC_O,
+        KC_P,
+        KC_NO,
+        KC_NO,
+        KC_RBRC
+    };
+
 
     dynamic_keymap_set_combo(0, &cm_JK_ESCAPE);
     dynamic_keymap_set_combo(1, &cm_LSCLN_ENTER);
@@ -72,6 +80,8 @@ void post_init_combos(void) {
     dynamic_keymap_set_combo(4, &cm_VZ_CUT);
     dynamic_keymap_set_combo(5, &cm_VX_COPY);
     dynamic_keymap_set_combo(6, &cm_VC_PASTE);
+
+    dynamic_keymap_set_combo(7, &cm_HARD);
 }
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
