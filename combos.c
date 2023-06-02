@@ -1,6 +1,7 @@
 #include "definitions.h"
 #include "combos.h"
 #include "tap_dance.h"
+#include "macroses.h"
 
 void post_init_combos(void) {
     vial_combo_entry_t cm_DF_ESCAPE = {
@@ -12,8 +13,8 @@ void post_init_combos(void) {
     };
 
     vial_combo_entry_t cm_JK_ESCAPE = {
-        KC_J,
-        KC_K,
+        J_PERSISTENT, // KC_J,
+        K_PERSISTENT, // KC_K,
         KC_NO,
         KC_NO,
         KC_ESC
@@ -29,7 +30,7 @@ void post_init_combos(void) {
     };
 
     vial_combo_entry_t cm_LSCLN_ENTER = {
-        KC_L,
+        L_PERSISTENT, // KC_L,
         KC_SCLN,
         KC_NO,
         KC_NO,
@@ -75,10 +76,11 @@ void post_init_combos(void) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (combo_index) {
-        case CM_JK_ESCAPE:
-            if (get_highest_layer(default_layer_state) == _GAME) {
-                return false;
-            }
+        case CM_DF_ESCAPE:
+            return get_highest_layer(default_layer_state) != _GAME;
+
+        case CM_AS_ENTER:
+            return get_highest_layer(default_layer_state) != _GAME;
     }
 
     return true;
