@@ -13,8 +13,8 @@ void post_init_combos(void) {
     };
 
     vial_combo_entry_t cm_JK_ESCAPE = {
-        J_PERSISTENT, // KC_J,
-        K_PERSISTENT, // KC_K,
+        KC_J,
+        KC_K,
         KC_NO,
         KC_NO,
         KC_ESC
@@ -30,7 +30,7 @@ void post_init_combos(void) {
     };
 
     vial_combo_entry_t cm_LSCLN_ENTER = {
-        L_PERSISTENT, // KC_L,
+        KC_L,
         KC_SCLN,
         KC_NO,
         KC_NO,

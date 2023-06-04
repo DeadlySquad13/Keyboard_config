@@ -8,7 +8,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [_BASE] = LAYOUT_all( \
             KC_GRV,       KC_1,    KC_2,      KC_3,       KC_4,          KC_5,                                       KC_6,          KC_7,         KC_8,          KC_9,         KC_0,    SETS, \
             TD_CAPS_GAME, KC_Q,    KC_W,      KC_E,       KC_R,          KC_T,                                       KC_Y,          KC_U,         KC_I,          KC_O,         KC_P,    KC_LBRC, \
-            KC_TAB,       KC_A,    TD_S_LGUI, TD_D_LALT,  TD_F_LCTL,     KC_G,                                       H_PERSISTENT,  J_PERSISTENT, K_PERSISTENT,  L_PERSISTENT, KC_SCLN, KC_QUOT, \
+            KC_TAB,       KC_A,    TD_S_LGUI, TD_D_LALT,  TD_F_LCTL,     KC_G,                                       KC_H,  KC_J, KC_K,  KC_L, KC_SCLN, KC_QUOT, \
             MEDIA,        KC_Z,    KC_X,      KC_C,       KC_V,          KC_B,                                       KC_N,          TD_M_RCTL,    TD_COMM_RALT,  TD_DOT_RGUI,  KC_SLSH, MEDIA, \
                                    QK_BOOT,   TD_DEL_NUM, OSM(MOD_LSFT),  TD_SPACE_NAV, TD_TMUX_SYMB,   TD_TMUX_SYMB, TD_SPACE_NAV, OSM(MOD_LSFT), KC_BSPC,       FUNC \
         ),
