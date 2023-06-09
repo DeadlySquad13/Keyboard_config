@@ -23,11 +23,6 @@ enum custom_keycodes {
     PERSISTENT_RIGHT,
     PERSISTENT_DOWN,
     PERSISTENT_UP,
-
-    H_PERSISTENT,
-    J_PERSISTENT,
-    K_PERSISTENT,
-    L_PERSISTENT,
 };
 
 extern bool persistent_nav_is_active;

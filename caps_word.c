@@ -7,6 +7,7 @@ bool caps_word_press_user(uint16_t keycode) {
         // Keycodes that continue Caps Word, with shift applied.
         case KC_A ... KC_Z:
         case KC_MINS:
+        case KC_SCLN:
         // * Home row mods.
         case TD_S_LGUI:
         case TD_D_LALT:
@@ -28,12 +29,6 @@ bool caps_word_press_user(uint16_t keycode) {
         case SYMB:
         case TD_DEL_NUM:
         case TD_TMUX_SYMB:
-        // * Custom keycodes.
-        case H_PERSISTENT:
-        case J_PERSISTENT:
-        case K_PERSISTENT:
-        case L_PERSISTENT:
-            // Actually handled manually inside `macroses.c`.
             return true;
 
         default:

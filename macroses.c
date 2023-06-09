@@ -238,6 +238,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 unregister_code(KC_RIGHT);
             }
             return true;
+
+        case KC_ESC:
+            persistent_nav_is_active = false;
+            break;
     }
 
     return true;
@@ -245,7 +249,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
 void matrix_scan_user(void) { // The very important timer.
   if (persistent_nav_is_active) {
-        if (timer_elapsed(persistent_nav_timer) > 3000) {
+        if (timer_elapsed(persistent_nav_timer) > 1500) {
             persistent_nav_is_active = false;
         }
     }
