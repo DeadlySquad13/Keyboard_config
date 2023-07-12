@@ -16,14 +16,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     switch (keycode) {
         case NEXTSEN:  // Next sentence macro.
           if (record->event.pressed) {
-            SEND_STRING(". ");
-            add_oneshot_mods(MOD_BIT(KC_LSFT));  // Set one-shot mod for shift.
-          }
-          return false;
-
-        case PREDL:  // Next sentence macro.
-          if (record->event.pressed) {
-            SEND_STRING("/ ");
+            register_code16(C(A(G(KC_F21))));
+            unregister_code16(C(A(G(KC_F21))));
+            SEND_STRING(" ");
             add_oneshot_mods(MOD_BIT(KC_LSFT));  // Set one-shot mod for shift.
           }
           return false;
